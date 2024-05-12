@@ -1,0 +1,5 @@
+cd to the directory
+
+python -m venv venv
+
+venv\Scripts\activate

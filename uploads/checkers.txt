@@ -1,0 +1,203 @@
+Introduction to Industry 4.0 and Industrial Internet of Things
+Prof. Sudip Misra
+Department of Computer Science and Engineering
+Indian Institute of Technology, Kharagpur
+Lecture – 02
+Introduction: IOT Connectivity – Part I
+In the previous lecture, we have seen the key technologies, which are heart of IoT or IIoT,
+which is basically sensing and actuation. The sensors can sense some physical changes in the
+characteristics of the environment in which it is operating. Let us see the temperature sensor.
+The temperature sensor can sense the changes in the temperature characteristics of the
+environment where it is operating. The different communication protocols are used for the
+transmission of the data sensed by the sensor.
+So, connectivity is the bottom line. The different available connectivity technologies
+discussed in the context of IoT, in general, applies to IIoT also.
+(Refer Slide Time: 02:15)
+These are some of the communication protocols that are typically used for IoT. The first one
+is the IEEE 802.15.4 standard. Then you have different other protocols such as the ZigBee,
+6LoWPAN, Wireless HART, Z-Wave, ISA 100, Bluetooth, NFC, and RFID. 
+(Refer Slide Time: 02:49)
+The 802.15.4 IEEE standard is used heavily for connectivity purposes in IoT. The sensed data
+are to be sent over a network to some remote device, for further processing. And, based on
+that processing again that signal has to be sent from that processor to some remote actuator,
+which will do some actuation that will turn on the lights of a room. Let us say, a laptop or
+something you know a processor or whatever. So, some signal might be required to be sent to
+the actuator right. We are talking about these different protocols that will be used over here
+and IEEE 802.15.4 is one such very widely used standards for offering connectivity in IoT.
+(Refer Slide Time: 04:48)
+IEEE 802.15.4 basically provides the framework meant to be used particularly for networks
+such as the wireless personal area networks. Personal area networks means the network
+which operate in a very small scale and small range. IEEE 802.15.4 basically defines how
+these physical and the MAC layers are going to be used.
+The physical layer defines things like the frequency band in which the communication is
+going to happen and the transmission power modulation scheme which is going to be used.
+On the other hand, the MAC layer discuss about different devices, the medium for
+communication, which protocol is going to be used, how they are going to send, when they
+are going to send, and what is the discipline that is going to be followed. The frames that are
+the PDUs in the data link layer, are going to be sent and the flows of the frames are to be
+maintained.
+IEEE 802.15.4 standard is typically meant for use in communication where there is low
+power, low cost, low speed requirements. The communication between devices which are
+separated by typically less than 75 meters, 10 to 75 meters. But, you know different operating
+conditions will result in different ranges.
+(Refer Slide Time: 06:50)
+DSSS, the direct sequence spread spectrum coding scheme, is used to transmit information.
+The coding scheme which will encode the data and it will be sent. The reason DSSS is used is
+that it offers increased security and reliability. IoT systems typically operate in noisy
+environments interference where there is a lot of interference. Therefore, DSSS is a kind of
+encoding scheme, good for sending information in these kind of channels exhibiting these
+noisy characteristics. DSSS uses phase shift keying modulation known as the PSK
+modulation. Phase shift keying modulation encodes the information and the different variants
+of it.
+The first one is the BPSK modulation. Binary phase shift keying and this is typically used for
+data transmission rate of about 20 to 40 Kbps and in this particular frequency band, 868, 915
+megahertz frequency band. There is another one, which is used for the 2.4 gigahertz
+frequency band, which is the OQPSK. The offset quadrature phase shift keying offers a
+higher data transmission rate of about 250 kbps. So, this BPSK offers 20 to 40 kbps and
+OQPSK offers about 250 kbps, a higher data rate, in the 2.4 gigahertz frequency band.
+DSSS is a standard that will be highly tolerant to noise and interference. So, ultimately DSSS
+offers link reliability. Link reliability means that you have to ensure that whatever you are
+sending reliably and which is the destination. 
+(Refer Slide Time: 09:51)
+These are some of the features of 802.15.4 that it operates in the line of sight and that is the
+preferred nature of transmission. The range typically is about 10 to 75. The MAC protocol,
+that is typically, used if the CSMA-CA protocol carrier sense multiple access with collision
+avoidance and 802.15.4 has a requirement because it has to work in systems with low power.
+Therefore, it is used in transmission systems where there is a requirement of producing or
+using low duty cycle, low duty cycle. Low duty cycle means the sensor will be active for a
+short duration of time because that will reduce the power consumption. So, in this kind of
+environment 802.15.4 is useful. The topologies that are typically used are network topologies
+such as the peer to peer topology and the star topology.
+(Refer Slide Time: 11:10)
+The basic version of IEEE 802.15.4 is the 2003 version, where the modulation scheme and
+data rates were fixed for different frequency bands as 868, 915 megahertz and 2.4 gigahertz.
+In 2006, the next variant came, which is popularly known as the 802.15.4b, which offer
+higher data rates compared to the previous version. 
+(Refer Slide Time: 11:54)
+We have the next one, 802.15.4a, which talks about increasing the range capability. Then
+came the 802.15.4c which talks about using the 780 megahertz band in china for offering
+connectivity and communication. So, this basically uses O-QPSK or MPSK multiple phase
+frequency shift keying mechanisms for data transmission with data rate 250 kbps.
+The IEEE 802.15.4d provides 980 megahertz band communication in Japan and it uses the
+GFSK and BPSK with different data rates.
+(Refer Slide Time: 12:46)
+The e-variant (802.15.4e) is particularly meant for serving MAC applications for industrial
+environments, f-variant (802.15.4f) is for particular use in RFID applications, g-variant
+(802.15.4g) for smart energy smart grid etc. So, these are the different variants of 802.15.4.
+ (Refer Slide Time: 13:30)
+There are different protocols like the ZigBee protocol which is primarily based on 802.15.4.
+The ZigBee protocol provides a framework for medium range communication to offer IoT
+connectivity, it defines the physical layer, and MAC layer characteristics enabling
+interoperability between multiple devices at low data rates. ZigBee operates in three
+frequencies: 868 megahertz, 902 to 928 megahertz and 2.4 gigahertz.
+(Refer Slide Time: 14:27)
+The lower frequency bands in ZigBee use BPSK, the 2.4 gigahertz band uses OQPSK, the
+offset QPSK, and then the data transfer takes place in 128 bytes packet size. So, each of these
+packet size in ZigBee is typically 128 bytes and the maximum allowed payload is 104 bytes.
+The nature of transmission is not necessarily to be line of sight (LoS). ZigBee works with
+reduced data rate to some extent for long distance. The standard range of transmission is
+about 10 to 70 meters in ZigBee.
+(Refer Slide Time: 15:21)
+ZigBee basically helps in packet transmission over greater distances with the help of the
+concept of relaying. A ZigBee device, which receives a packet, sends the data packet to one
+of its neighbors and through multi-hub process communication from the source will be
+received at the destination node. ZigBee supports the relaying concept, virtually
+communication range can be increased. ZigBee provides low power communication around 1
+megawatt per ZigBee module and it has different features such as offering adaptable duty
+cycle, low data rates of about 20 to 250 Kbps, low coverage ratio of 10 to 100 meter and so
+on. ZigBee supports different network topologies such as the star topology, P2P cluster tree
+topology and mesh topology and the mesh.
+(Refer Slide Time: 16:43)
+ZigBee protocol defines three types of nodes: the coordinator node, the router node and the
+end devices. The coordinator takes care of issues of initialization, maintaining, and
+controlling of the network. There is normally one controller per network. There are routers,
+which are typically used for multi-hop routing, to transmit the data packets received. The end
+devices are the recipients of the data which do not contribute to further routing.
+The topology used are star topology and there is one coordinator, zero or more end devices. If
+the mesh and tree topologies are used, there is one coordinator that maintains several routers
+and end devices.
+(Refer Slide Time: 17:47)
+Each cluster in a cluster tree network topology is used involves a coordinator through several
+leaf nodes. So, there is some cluster and there is a tree kind of structure. The coordinators are
+linked to the parent coordinator that initiates the entire network.
+ZigBee standard comes in two variants: the regular ZigBee and the pro variant. Pro is
+attractive, because it offers you know issues of scalability. ZigBee pro offers better security;
+improved performance utilizes many routing scheme. 
+ (Refer Slide Time: 19:07)
+In ZigBee, the physical, then the MAC, have different layers such as the SSCS, the LLC, and
+the network layer. Traditional OSI is used for the internet. The physical layer has the data
+link layer all the way up to application. 
+(Refer Slide Time: 21:15)
+ 6LoWPAN, you must be wondering, that what is this 6, with a numerical value the name of a
+protocol starting with the numeric value. 6 stands for the letter 6 in IPv6. 6LoWPAN is about
+use of IPv6 over wireless personal area networks. The personal area network, the wireless
+one and there is low power. This optimizes 6LoWPAN optimizes IPv6 packet transmission in
+low power lossy networks. 6LoWPAN operates at two frequencies: one is the 240, sorry,
+2400 to 2483.5 megahertz frequency band which is used worldwide and the other one is in
+North America which is the 902 to 929 megahertz band. IEEE 802.15.4 standard in the
+unslotted CSMA/CA MAC protocol mode. 
+(Refer Slide Time: 22:37)
+6LoWPAN converts the data format to be fit within 802.15.4 lower layer system. IPv6
+basically involves MTU of 1280 bytes in length, while 802.15.4 permit a packet size of upto
+127 bytes. Therefore, there is a big mismatch, 1280 is permitted by IPv6 and 802.15.4
+allowing 127 bytes only. This can be achieved with the help of a layer which is known as the
+adaptation layer, which is introduced in between the MAC and the network layer. This helps
+in packet fragmentation. Fragmentation has to be done because, 1280 and 127, there is a
+mismatch in the sizes. This adaptation layer will help in few other things such as the
+compression of header, routing of data link layer. So, routing help with the routing on top of
+the data link layer, with the help of this particular adaptation layer.
+(Refer Slide Time: 24:13)
+So, fragmentation is required to be able to fit the intact IPv6 packet into the IEEE 802.15.4
+frame. So, this fragmentation header allows 2048 bytes packet size. Using fragmentation and
+reassembly 128 bytes, IPv6 frames are transmitted over 802.15.4 radio channel into several
+smaller fragments. IPv6 will take care of the 6LoWPAN protocol, the adaptation layer will
+basically take care of both the fragmentation as well as the reassembly.
+(Refer Slide Time: 25:05)
+The header compression reduces the transmission overhead and allows efficient transmission
+of payload. So, IPv6 addresses are compressed in 6LoWPAN into two types: 8-byte UDP
+header and 40-byte IPv6 header. DHCP is not used in 6LoWPAN.
+(Refer Slide Time: 26:02)
+The data link layer routing is classified into two schemes: one is the mesh under which
+utilizes the link layer addresses to provide to forward data packets and the other one is the
+route over. So, route over utilizes network layer IP address. 
+Let us look at one more thing is that this AES-128 link layer security is used.
+(Refer Slide Time: 27:01)
+The physical layer, then the MAC layer, the adaptation layer which is the 6LoWPAN, the
+network layer, the transport layer, and the application layer are placed.
+The difference in case of mesh under this routing is done in the adaptation layer. 
+(Refer Slide Time: 28:54)
+Another protocol, which is the wireless HART protocols, are used particularly for industrial
+applications. The full form of HART is Highway Addressable Remote Transducer and is
+based on IEEE 802.15.4 standard.
+It functions in the 2.4 gigahertz ISM band using data rates upto about 250 kbps and there are
+11 to 26 channels with a spacing of about 5 megahertz between two adjacent channels.
+HART wireless protocol makes it mandatory that the same channel cannot be used
+consecutively. 
+(Refer Slide Time: 29:43)
+These features of wireless HART is it uses DSSS based on IEEE 802.15.4. Wireless HART
+protocol follows the channel hopping every time it sends a packet. And, the modulation
+scheme is used is the OQPSK offset quadrature phase shift keying and the transmission
+power is around 10 dBm.
+ (Refer Slide Time: 30:24)
+There are other features such as the payload size that is allowed is 127 bytes. The MAC
+protocol used is TDMA. This TDMA technology is used to provide collision free and
+deterministic communication. There are different time slots in which the communication
+takes place, so, there is no collision. A sequence of 100 consecutive time slots per second is
+grouped into something known as the super frame. This super frame concept is very
+important.
+ (Refer Slide Time: 31:13)
+The devices support multiple super frames which will have differing number of time slots. At
+least once per frame is always enabled while additional super frames are enabled and disabled
+according to the demand of the bandwidth. For any message the communication occurs in the
+allotted time slot. So, wireless HART basically supports both star and mesh topologies.
+(Refer Slide Time: 31:43)
+These are the some of these features of the wireless HART and as we have seen industrial
+applications are the ones where wireless HART is very attractive for use. It is based on IEEE
+802.15.4 standard. And, it is a very attractive protocol for industrial applications. If you want
+to know further about wireless HART and the other protocols and the standard 802.15.4 in
+more detail, these are some of the references.
+This lecture introduces you to only these protocols, but if you need to know this kind of
+understanding will be sufficient for you to go ahead with the further lectures. But, in case you
+need to go ahead these are some of these references that are listed which you can go through
+in further detail and gain even more in depth, an understanding if you require to. 
+Thank you.

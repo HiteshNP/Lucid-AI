@@ -1,0 +1,8 @@
+Flask
+assemblyai
+requests
+elevenlabs
+vertexai
+google-generativeai
+markdown
+python-dotenv
