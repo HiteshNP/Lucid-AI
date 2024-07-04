@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 load_dotenv('.env.local')
 
 ASSEMBLY_AI_API_KEY = os.getenv('ASSEMBLY_AI_API_KEY')
+
 ELEVENLABS_API_KEY = os.getenv('ELEVENLABS_API_KEY')
 VERTEX_AI_API_KEY= os.getenv('VERTEX_AI_API_KEY')
 
