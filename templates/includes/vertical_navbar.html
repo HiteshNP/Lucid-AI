@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .navbarr {
+            height: 100vh;
+            list-style-type: none;
+            display: flex;
+            row-gap: 8px;
+            flex-direction: column;
+            justify-content: center;
+            margin: 25px;
+            padding: 0;
+            line-height: 17px;
+            border-radius: 30px;
+            width: 250px;
+            position: fixed;
+            right: 0;
+            height: 70%;
+            overflow: auto;
+            background-color: #EBFDFF;
+        }
+
+        .body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .navbarr a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            background-color: #94D6E6;
+            text-align: center;
+            font-weight: 600;
+            padding: 4px 4px;
+            margin: 10px; /* Reduced from 20px to 10px */
+            height: 40px; /* Adjusted for compactness */
+            text-decoration: none;
+            border-radius: 12px;
+            transition: background-color 0.3s;
+        }
+
+        .navbarr a:hover {
+            background-color: #9FE4F3;
+            color: black;
+        }
+
+        /* Additional styling for the paragraph to ensure consistency */
+        .navbarr p {
+            text-align: center;
+            padding: 20px 15px; /* Adjusted padding */
+            margin: 0px;
+            background-color: #EBFDFF; /* Matches navbar background */
+            border-radius: 12px; /* Consistent with anchor style */
+        }
+
+        /* Style for the subnav */
+        .sub_nav {
+            display: none; /* Hide the subnav by default */
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Show the subnav when hovering over the "Accent" link */
+        #accent_wrapper:hover .sub_nav {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<ul class="navbarr">
+    <p>How can I help you study today?</p>
+    <li><a id="transcript" href="/transcript">Clean Transcript</a></li>
+    <li><a id="summary" href="/summary">Summary</a></li>
+    <li id="accent_wrapper">
+        <a id="translate" href="/translate">Translate to my language</a>
+        <ul class="sub_nav">
+            <li><a href="/translate?parameter=English">English</a></li>
+            <li><a href="/translate?parameter=French">French</a></li>
+            <li><a href="/translate?parameter=Hindi">Hindi</a></li>
+            <li><a href="/translate?parameter=Spanish">Spanish</a></li>
+            <li><a href="/translate?parameter=Korean">Korean</a></li>
+            <li><a href="/translate?parameter=Arabic">Arabic</a></li>
+        </ul>
+    </li>
+    <li id="accent_wrapper">
+        <a id="accent" href="/accent">Translate to my Accent</a>
+        <ul class="sub_nav">
+            <li><a href="/accent?parameter=female-american">Female American</a></li>
+            <li><a href="/accent?parameter=male-american">Male American</a></li>
+            <li><a href="/accent?parameter=female-british">Female British</a></li>
+            <li><a href="/accent?parameter=male-british">Male British</a></li>
+        </ul>
+    </li>
+    <li><a id="flashcards" href="/flashcards">Flashcards</a></li>
+</ul>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
