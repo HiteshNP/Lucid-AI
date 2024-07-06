@@ -60,7 +60,7 @@
         background-color: #f0f0f0;
         padding: 50px 0; /* Adjust padding as needed */
         text-align: center;
-        width: 100vw; /* Ensure it spans full viewport width */
+        width: 99.4vw; /* Ensure it spans full viewport width */
         overflow-x: hidden; /* Prevent horizontal scroll */
         position: relative;
         left: 50%;
@@ -70,7 +70,7 @@
     }
 
     .full-width-section .content {
-        max-width: 1200px; /* Adjust max-width to limit content width */
+        max-width: 100%; /* Adjust max-width to limit content width */
         margin: 0 auto; /* Center content within the full-width section */
         display: flex;
         justify-content: space-between; /* Spread content to edges */
@@ -193,17 +193,18 @@
     }
 
     /* New styles for the first div box */
-    .boxed-container {
-    background: rgba(168, 164, 164, 0.8); /* Semi-transparent background with increased opacity */
-    padding: 10px; /* Reduced padding */
-    border: 2px rgba(255, 255, 255, 0.5); /* Green border */
-    border-radius: 8px;
+    .boxed-container {   
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(100px);
+    color: #fff;
+    padding: 30px 20px;
+    margin: 20px;
+    border: 0px solid rgba(255, 255, 255, 0.5); /* Green border with transparency */
+    border-radius : 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
-    margin: 10px auto; /* Reduced margin and centered horizontally */
-    max-width: 600px; /* Set a maximum width */
+    max-width: 460px; /* Set a maximum width */
     width: 90%; /* Ensure it takes up a significant portion of the viewport */
-}
-
+    }
 
     /* Additional styles to push the about section down */
     .push-down {
@@ -213,7 +214,6 @@
     /* Adjustments for services section */
     .services-section {
         padding-top: 80px; /* Ensure space above the first service */
-        padding-bottom: 80px;
         background-color: transparent; /* Light gray background */
     }
 
@@ -238,7 +238,7 @@
     }
 
     .services-section img {
-        max-width: 80%; /* Reduce image size */
+        max-width: 90%; /* Reduce image size */
         height: auto;
         border-radius: 8px;
     }
@@ -256,7 +256,7 @@
             <img src="/static/Lucid_logo.png" class="card-img-top" alt="Image" style="object-fit: cover; height: 150px; width:150px; border-radius: 50%;">
             <h1 class="display-4" style="background: linear-gradient(to right, rgb(159, 228, 243), rgb(19, 95, 126)); font-size: 80px; -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: bold;">Lucid AI</h1>
             <div class="typewriter-container" style="height: 50px; padding: 0px; border-collapse: collapse; margin: 0px;"> 
-                <p id="typewriter-text" style="font-size: 28px; padding: 0px; border-collapse: collapse; margin: 0px; font-weight: 500;"></p>
+                <p id="typewriter-text" style="font-size: 25px; padding: 0px; border-collapse: collapse; margin: 0px; font-weight: 500;"></p>
             </div>
         
             <div style="height: 15px"></div>
@@ -299,13 +299,22 @@
     <div class="full-width-section">
         <div class="content">
             <div class="text-side">
-                <h3>Clean Transcript</h3>
+                <h3>1. Listen, Read, Learn: Audio Decoder</h3>
+                <p>🎉 Unlock the full potential of audio learning! 📚 Our LucidAI Audio Decoder is a game-changer! 🚀</p>
                 <ul>
-                    <li>🎤 Decode conversations between two brainiacs debating at MIT.</li>
-                    <li>🔍 Polished transcripts that even Siri would envy.</li>
-                    <li>📄 From chaotic text messages to lively podcasts.</li>
-                    <li>✨ Bringing clarity to your cacophony.</li>
+                    <li>Instantly transcribe MP3 files into readable text 📄</li>
+                    <li>Boost your comprehension and retention 🤩</li>
+                    <li>Discover new insights and learning opportunities 💡</li>
+                    <li>Save time and learn more efficiently ⏱</li>
                 </ul>
+                <p>Try our web app now and experience the future of learning! 🚀</p>
+                <p>👉 Explore our features and uncover a smarter way to learn! 🤓</p>
+                <ul>
+                    <li>🔍 Search and find specific moments in audio files</li>
+                    <li>📝 Take notes and organize your thoughts</li>
+                    <li>📊 Review and track your progress</li>
+                </ul>
+                <p>Join the learning revolution! 🌟 Check it out now and start transcribing your way to success! 🎉</p>
             </div>
             <div class="image-side">
                 <img src="/static/service1.jpg" alt="Service 1">
@@ -319,13 +328,22 @@
                 <img src="/static/service2.jpg" alt="Service 2">
             </div>
             <div class="text-side">
-                <h3>Summary</h3>
+                <h3>2. Clear Understanding: Multilingual Translation                </h3>
+                <p>🌎 Understand with ease, in your native language! 🌍</p>
+                <p>We've got you covered with our multilingual translation feature! 🌈</p>
+                <p>Get transcribed text from audio translated into your native language, including:</p>
                 <ul>
-                    <li>📚 Distill mountains of text into concise summaries.</li>
-                    <li>🧙‍♂️ Unravel ancient scrolls or decode cryptic emails.</li>
-                    <li>⚡️ Extracting key info with magical efficiency.</li>
-                    <li>💡 Sprinkle some clarity into your chaotic world.</li>
+                    <li>🇬🇧 English</li>
+                    <li>🇫🇷 French</li>
+                    <li>🇮🇳 Hindi</li>
+                    <li>🇪🇸 Spanish</li>
+                    <li>🇰🇷 Korean</li>
+                    <li>🇦🇪 Arabic</li>
                 </ul>
+                <p>and many more! 🌏</p>
+                <p>Read and understand audio content in the language that's most comfortable for you. 📖</p>
+                <p>No more language barriers, just clear understanding! 🌟</p>
+                <p>Try our translation feature now and connect with audio content like never before! 🚀</p>
             </div>
         </div>
     </div>
@@ -333,13 +351,17 @@
     <div class="full-width-section">
         <div class="content">
             <div class="text-side">
-                <h3>Translation into Multiple Languages</h3>
+                <h3>3. Hear It Your Way: Effortless Understanding</h3>
+                <p>🌎 Break down accent barriers with our Accented Speech Translation feature! 🗣</p>
+                <p>Struggling to understand audio files due to unfamiliar accents? 🤔</p>
+                <p>Our innovative feature automatically adjusts the accent to one you're most comfortable with, making it easier to comprehend and learn from audio content! 📚</p>
+                <p>Select your preferred accent and:</p>
                 <ul>
-                    <li>🌐 Speak more languages than a hyperpolyglot on caffeine.</li>
-                    <li>🇬🇧🇫🇷🇮🇳🇪🇸🇰🇷🇦🇪 From English to Arabic, we've got you covered.</li>
-                    <li>🔄 Bridging the gap in linguistic limbo.</li>
-                    <li>🌞 Keeping your words as clear as day.</li>
+                    <li>🔊 Enhance audio clarity and understanding</li>
+                    <li>📝 Take notes and focus on the content, not the accent</li>
+                    <li>🎯 Boost your learning and productivity</li>
                 </ul>
+                <p>Experience the power of accent adaptation! 🌟 Check it out now and tune in to crystal-clear audio, tailored to your ears! 🎧</p>
             </div>
             <div class="image-side">
                 <img src="/static/service3.jpg" alt="Service 3">
@@ -353,13 +375,23 @@
                 <img src="/static/service4.jpg" alt="Service 4">
             </div>
             <div class="text-side">
-                <h3>Accented Speech Translation</h3>
+                <h3>4. Flash Your Way to the Top: Interactive Learning Made Fun                </h3>
+                <p>🎓 Flashcards, reinvented! 💥</p>
+                <p>Introducing interactive flashcards that make learning stick like glue! 🤩</p>
                 <ul>
-                    <li>🗣️ Decode accents thicker than grandma's gravy.</li>
-                    <li>🇺🇸🇬🇧 Brooklyn brawler to Southern belle, we handle it all.</li>
-                    <li>🔍 Decoding accents like a linguistics Sherlock.</li>
-                    <li>🔄 Translating accents so smooth, even Siri would be jealous.</li>
+                    <li>Learn anything faster, from vocabulary to history, and ace your exams! 📚</li>
+                    <li>Our flashcards are your secret weapon to:</li>
+                    <ul>
+                        <li>💡 Boost retention from goldfish memory to Einstein-level brilliance</li>
+                        <li>🔥 Supercharge your learning speed and efficiency</li>
+                        <li>📈 Track progress and stay motivated</li>
+                    </ul>
+                    <li>Experience the ultimate learning upgrade! 🚀</li>
                 </ul>
+                <p>👉 Create digital flashcards with a click</p>
+                <p>👉 Study modes for every learning style</p>
+                <p>👉 Gamify your progress and make learning fun!</p>
+                <p>Unlock your full potential! 💪 Check it out now and start flashing your way to academic success! 🎉</p>
             </div>
         </div>
     </div>
@@ -367,13 +399,15 @@
     <div class="full-width-section">
         <div class="content">
             <div class="text-side">
-                <h3>Flashcards</h3>
+                <h3>5. From Confusion to Clarity: The LucidAI-Summary-Sorcerer</h3>
+                <p>Lost in a sea of study materials? Overwhelmed by lengthy lectures and complex texts? 🌊 Fear not, dear scholar!</p>
+                <p>Introducing the LucidAI-Summary-Sorcerer! 🔮 This powerful tool is designed to help you grasp complex concepts and retain knowledge more effectively. With a wave of its digital wand, the Sorcerer:</p>
                 <ul>
-                    <li>🎓 Interactive flashcards that stick in your brain.</li>
-                    <li>🧠 Mastering calculus or memorizing cat breeds.</li>
-                    <li>🚀 Your secret weapon for learning that sticks.</li>
-                    <li>💡 From goldfish memory to Einstein-level retention.</li>
+                    <li>📚 Condenses lengthy texts into concise, easy-to-understand summaries</li>
+                    <li>⚡ Extracts key points and main ideas with remarkable speed and accuracy</li>
+                    <li>💡 Illuminates the core concepts, making it easier to understand and retain information</li>
                 </ul>
+                <p>Unlock the secrets of your study materials and discover the magic of learning! 💫 The LucidAI-Summary-Sorcerer is your trusted guide, helping you navigate the vast ocean of knowledge and achieve academic success!</p>
             </div>
             <div class="image-side">
                 <img src="/static/service5.jpg" alt="Service 5">
@@ -381,22 +415,6 @@
         </div>
     </div>
 
-    <div class="full-width-section" style="background-color: #b5b3b3;">
-        <div class="content">
-            <div class="image-side">
-                <img src="/static/service6.jpg" alt="Service 6">
-            </div>
-            <div class="text-side">
-                <h3>MP3 to Text Transcript</h3>
-                <ul>
-                    <li>🔊 Turn audio into text faster than auto-tune.</li>
-                    <li>🎵 From podcasts to pop songs, we decode every syllable.</li>
-                    <li>📄 Transform audio chaos into crystal-clear transcripts.</li>
-                    <li>✨ No more deciphering two brainiacs debating at MIT.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
 </div>
 
 <script>
@@ -451,8 +469,6 @@
         });
     });
 </script>
-
-
 
 {% endblock %}
 

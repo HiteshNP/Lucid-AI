@@ -1,6 +1,85 @@
-<!-- footer.html -->
-<footer class="footer mt-auto py-3">
-    <div class="container">
-        <span class="text-muted">&copy; 2024 Lucid AI</span>
-    </div>
-</footer>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Example</title>
+    <!-- Link your CSS and FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Custom CSS for footer */
+        .footer {
+            background-color: #f8f9fa; /* Light background color */
+            padding: 20px 0; /* Padding top and bottom */
+        }
+
+        .footer .container {
+            max-width: 960px; /* Set maximum width for the container */
+            margin: 0 auto; /* Center align the container */
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Column layout for content */
+            align-items: center; /* Center align items */
+        }
+
+        .footer .text-muted {
+            color: #6c757d; /* Medium gray text color */
+            text-align: center; /* Center align text */
+        }
+
+        .footer .contact-info {
+            width: 100%;
+            display: flex;
+            justify-content: space-between; /* Space out items */
+            align-items: center; /* Center align items vertically */
+        }
+
+        .footer .contact-info a {
+            color: #6c757d; /* Medium gray link color */
+            text-decoration: none; /* Remove underline from links */
+            margin: 0 10px; /* Horizontal margin around links */
+        }
+
+        .footer .contact-info a:hover {
+            color: #007bff; /* Blue color on hover */
+        }
+
+        .footer .separator {
+            font-weight: bold; /* Make the separator bold */
+            margin: 0 5px; /* Add margin around the separator */
+            display: inline-block; /* Ensure separator behaves as an inline element */
+        }
+
+        .footer .center-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .footer .privacy-policy {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <div class="contact-info">
+                <div class="left">
+                    <a href="mailto:hiteshnp19@gmail.com"><i class="fas fa-envelope"></i> hiteshnp19@gmail.com</a>
+                    <span class="separator">|</span>
+                    <a href="https://www.linkedin.com/in/hiteshnp" target="_blank"><i class="fab fa-linkedin"></i> Hitesh N P</a>
+                </div>
+                <div class="center-content">
+                    <span class="text-muted">&copy; 2024 Lucid AI</span>
+                </div>
+                <div class="right">
+                    <a href="mailto:ankithdadda@gmail.com"><i class="fas fa-envelope"></i> ankithdadda@gmail.com</a>
+                    <span class="separator">|</span>
+                    <a href="https://www.linkedin.com/in/ankith-d-241448248/" target="_blank"><i class="fab fa-linkedin"></i> D Ankith</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
