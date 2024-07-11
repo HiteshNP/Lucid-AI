@@ -4,6 +4,7 @@ import assemblyai as aai
 from gemini import *
 import requests
 from dotenv import load_dotenv
+import subprocess
 
 load_dotenv('.env.local')
 
@@ -26,6 +27,17 @@ def index():
 @app.route('/vision')
 def about():
     return render_template('vision.html', app_data=app_data)
+
+@app.route('/chat_with_pdf')
+def chat_with_pdf():
+    subprocess.Popen(["streamlit", "run", "chat_pdf.py"])
+    return redirect(url_for('index'))
+
+@app.route('/boring_slide_eradicator')
+def boring_slide_eradicator():
+    import subprocess
+    subprocess.Popen(["streamlit", "run", "slide.py"])
+    return redirect(url_for('index'))
 
 @app.route('/success', methods=['POST'])
 def success():
