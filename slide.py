@@ -3,8 +3,8 @@ import os
 import streamlit as st
 from dotenv import load_dotenv
 import google.generativeai as gen_ai
-import fitz  # pip install PyMuPDF
-from pptx import Presentation  # pip install python-pptx
+import fitz  
+from pptx import Presentation  
 from pptx.util import Pt, Inches
 import io
 import re
