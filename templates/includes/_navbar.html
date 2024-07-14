@@ -215,9 +215,11 @@
     document.addEventListener('DOMContentLoaded', (event) => {
         const toggleButton = document.getElementById('theme-toggle');
         const body = document.body;
+        const footer = document.querySelector("footer");
 
         toggleButton.addEventListener('change', () => {
             body.classList.toggle('dark-mode');
+            footer.classList.toggle("dark-mode");
         });
     });
 </script>
