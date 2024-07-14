@@ -45,7 +45,7 @@
     }
 
     #background-video {
-        position: fixed;
+        position: absolute;
         right: 0;
         bottom: 0;
         min-width: 100%;
@@ -54,6 +54,7 @@
         height: auto;
         z-index: -1000;
         opacity: 1;
+        max-height: 200vh;
     }
 
     .full-width-section {
@@ -213,7 +214,7 @@
 
     /* Adjustments for services section */
     .services-section {
-        padding-top: 80px; /* Ensure space above the first service */
+        padding-top: 0px; /* Ensure space above the first service */
         background-color: transparent; /* Light gray background */
     }
 
@@ -241,6 +242,13 @@
         max-width: 90%; /* Reduce image size */
         height: auto;
         border-radius: 8px;
+    }
+
+    .dark-mode .services-section h3,
+    .dark-mode .services-section p,
+    .dark-mode .services-section ul,
+    .dark-mode .services-section li {
+        color: #212529; /* Keep text black */
     }
 
 </style>
