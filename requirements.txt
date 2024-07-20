@@ -6,10 +6,13 @@ Flask
 google-generativeai
 langchain
 markdown
-pptx
+python-pptx
 PyPDF2
 python-dotenv
 requests
 streamlit
 streamlit-image-select
 vertexai
+langchain-community
+langchain-google-genai
+frontend

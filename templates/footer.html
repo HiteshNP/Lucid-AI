@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Footer Example</title>
+    <title>Footer</title>
     <!-- Link your CSS and FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
@@ -12,6 +12,18 @@
             background-color: #ffffff; /* Light background color */
             padding: 20px 0; /* Padding top and bottom */
         }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        footer.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
 
         .footer .container {
             max-width: 960px; /* Set maximum width for the container */
@@ -62,7 +74,7 @@
     </style>
 </head>
 <body>
-    <footer class="footer mt-auto py-3">
+    <footer class="footer">
         <div class="container">
             <div class="contact-info">
                 <div class="left">
