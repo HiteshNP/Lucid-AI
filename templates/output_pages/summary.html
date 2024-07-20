@@ -4,27 +4,13 @@
 <head>
     <title>Output</title>
 
-    <script>
-        // Select Navbar item to color here (use Ids for that)
-        var listItemToColor = "summary";
+    <script> //Select Navbar item to color here (use Ids for that)
+       var listItemToColor="summary";
     </script>
 
 </head>
 <body>
-    <div class="summary-container">
-        <h1>Summary</h1>
-        <div class="summary-content">
-            {{ output|safe }}
-        </div>
-    </div>
+    <h1>Summary</h1>
+    {{ output|safe }}
 </body>
-
-<style>
-    .summary-container {
-        /* Takes up 70% of the width */
-        margin-right: 5%; /* Leaves 30% space from the right margin */
-        padding: 20px; /* Optional padding for better appearance */
-    }
-</style>
-
 {% endblock %}
