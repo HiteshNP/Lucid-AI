@@ -7,19 +7,20 @@
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-
+        /* Default light mode styles */
         body {
             background-color: white;
             color: black;
         }
 
+        /* Dark mode styles */
         body.dark-mode {
             background-color: #121212;
             color: white;
         }
 
         .dark-mode .navbar {
-             /* Remove background color */
+            background-color: transparent !important; /* Remove background color */
             box-shadow: none !important; /* Remove shadow if needed */
         }
 
@@ -42,8 +43,7 @@
         }
 
         .dark-mode .nav-link {
-
-            color: #87CEEB;
+            color: white !important;
             position: relative; /* Ensure z-index works */
         }
 
@@ -58,7 +58,7 @@
         }
 
         .navbar-brand span {
-            background: #87CEEB;
+            background: linear-gradient(to right, rgb(159, 228, 243), rgb(19, 95, 126));
             font-size: 25px;
             -webkit-background-clip: text;
             background-clip: text;
@@ -67,6 +67,7 @@
             margin-left: 10px;
         }
 
+        /* Toggle switch styles */
         .toggle-switch {
             position: relative;
             display: inline-block;
@@ -96,6 +97,7 @@
              /* Rounded corners for dark mode */
         }
 
+        /* Sun and moon icons */
         .slider:before {
             position: absolute;
             content: "";
@@ -120,7 +122,7 @@
 
         /* Navigation links */
         .nav-link {
-            color: #87CEEB; /* Default link color */
+            color: #333; /* Default link color */
             text-decoration: none;
             margin-left: 10px; /* Adjust spacing between links */
             font-weight: bold;
@@ -128,27 +130,30 @@
         }
 
         .nav-link:hover {
-            color: #1c7cea; /* Hover link color */
+            color: #00BFFF; /* Hover link color */
         }
+
 
         input:checked + .slider:before {
             transform: translateX(20px);  /* Adjusted for new size */
         }
 
         .navbar {
-        background: transparent; /* Darker grey with 60% opacity */
+        background: rgba(0, 0, 0, 0.6); /* Darker grey with 60% opacity */
         backdrop-filter: blur(10px); /* Apply a blur effect to the background */
         color: #fff; /* Text color */
+        /*border: 1px solid rgba(255, 255, 255, 0.5); /* Border with transparency */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
         }
 
         .navbar-toggler {
         color: rgba(0, 0, 0, 0.5); /* Adjust color as needed */
         border-color: rgba(0, 0, 0, 0.1); /* Adjust border color if necessary */
-        z-index: 2000; /* Ensure toggler icon is above other elements */
+        z-index: 1100; /* Ensure toggler icon is above other elements */
     }
 
     .navbar-toggler-icon {
+        background-image: none; /* Remove any default background image */
         color: rgba(0, 0, 0, 0.5); /* Adjust icon color */
         font-size: 24px; /* Adjust icon size if necessary */
     }
@@ -169,9 +174,7 @@
             <span>Lucid AI</span>
         </a>        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span>
-                <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/00bfff/menu--v6.png" alt="menu--v6"/>
-            </span>
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto align-items-center">
@@ -212,11 +215,9 @@
     document.addEventListener('DOMContentLoaded', (event) => {
         const toggleButton = document.getElementById('theme-toggle');
         const body = document.body;
-        const footer = document.querySelector("footer");
 
         toggleButton.addEventListener('change', () => {
             body.classList.toggle('dark-mode');
-            footer.classList.toggle("dark-mode");
         });
     });
 </script>
