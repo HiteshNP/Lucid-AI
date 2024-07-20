@@ -54,7 +54,6 @@
         height: auto;
         z-index: -1000;
         opacity: 1;
-        max-height: 200vh;
     }
 
     .full-width-section {
@@ -214,7 +213,7 @@
 
     /* Adjustments for services section */
     .services-section {
-        padding-top: 0px; /* Ensure space above the first service */
+        padding-top: 80px; /* Ensure space above the first service */
         background-color: transparent; /* Light gray background */
     }
 
@@ -244,13 +243,6 @@
         border-radius: 8px;
     }
 
-    .dark-mode .services-section h3,
-    .dark-mode .services-section p,
-    .dark-mode .services-section ul,
-    .dark-mode .services-section li {
-        color: #212529; /* Keep text black */
-    }
-
 </style>
 
 <video autoplay loop muted id="background-video">
@@ -262,7 +254,7 @@
     <center>
         <div class="boxed-container">
             <img src="/static/Lucid_logo.png" class="card-img-top" alt="Image" style="object-fit: cover; height: 150px; width:150px; border-radius: 50%;">
-            <h1 class="display-4" style="background: #87CEEB; font-size: 80px; -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: bold;">Lucid AI</h1>
+            <h1 class="display-4" style="background: linear-gradient(to right, rgb(159, 228, 243), rgb(19, 95, 126)); font-size: 80px; -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: bold;">Lucid AI</h1>
             <div class="typewriter-container" style="height: 50px; padding: 0px; border-collapse: collapse; margin: 0px;"> 
                 <p id="typewriter-text" style="font-size: 25px; padding: 0px; border-collapse: collapse; margin: 0px; font-weight: 500;"></p>
             </div>
