@@ -110,40 +110,35 @@ The project architecture consists of a front-end built with HTML, CSS, and Boots
 
 1. *Clone the repository*
 
-bash
-git clone https://github.com/your-repo/lucid-ai.git
-cd lucid-ai
+    ```bash
+    git clone https://github.com/your-repo/lucid-ai.git
+    cd lucid-ai
+    ```
 
 2. **Install dependencies**
 
-bash
-pip install -r requirements.txt
-
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 3. **Set up environment variables**
 
 Create a `.env` file in the project root and add your API keys:
 
-bash
-GEMINI_API_KEY=your_gemini_api_key
-ASSEMBLYAI_API_KEY=your_assemblyai_api_key
-ELEVEN_LABS_API_KEY=your_eleven_labs_api_key
-
-
-### Running the Project
-
+    ```bash
+    GEMINI_API_KEY=your_gemini_api_key
+    ASSEMBLYAI_API_KEY=your_assemblyai_api_key
+    ELEVEN_LABS_API_KEY=your_eleven_labs_api_key
+    ```
 4. **Start the Flask server**
 
-bash
-python app.py
-```
+    ```bash
+    python app.py
+    ```
 
 ### Accessing the Application
 
 Open your web browser and navigate to http://localhost:5000 to access Lucid-AI.
 
----
-
 Thank you for exploring Lucid-AI! We hope this tool enhances your learning experience and supports your educational journey. If you have any questions or feedback, please feel free to reach out.
 
----
