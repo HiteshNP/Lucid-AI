@@ -4,18 +4,21 @@
 <head>
     <title>Output</title>
 
-    <script> //Select Navbar item to color here (use Ids for that)
-       var listItemToColor="accent";
+    <script> 
+        // Select Navbar item to color here (use Ids for that)
+        var listItemToColor = "accent";
     </script>
-
 </head>
 <body>
-    <h1>Audio Transcript</h1>
-    <audio src="{{ url_for('static', filename=mp3_file_path) }}" controls></audio>
 
-    <!-- <audio src="{{url_for('static', filename='{{mp3_file_path}}')}}" controls></audio> -->
-    
+    <div>
+        <h2>Transcript</h2>
+        <p>{{ transcript }}</p>
+    </div>
+
+    <div>
+        <h2>Audio Transcript</h2>
+        <audio src="{{ url_for('static', filename=mp3_file_path) }}" controls></audio>
+    </div>
 </body>
-
-
 {% endblock %}

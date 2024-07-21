@@ -11,6 +11,7 @@ from vertexai.generative_models import (
 import markdown
 import os
 from dotenv import load_dotenv
+from deep_translator import GoogleTranslator
 
 load_dotenv('.env.local')
 
@@ -34,12 +35,20 @@ def clean_up_text(transcript):
     return response.text
 
 def translate(transcript, language):
+    if language.lower() == "kannada":
+        return translate_to_kannada(transcript)
+    
     multimodal_model = genai.GenerativeModel("gemini-1.0-pro")
     transcript = clean_up_text(transcript)
     prompt = f"Translate this passage to {language}"
     response = multimodal_model.generate_content([transcript, prompt])
     
     return response.text
+
+def translate_to_kannada(transcript):
+    cleaned_text = clean_up_text(transcript)
+    translated_text = GoogleTranslator(source='auto', target='kn').translate(cleaned_text)
+    return translated_text
 
 def find_keywords(transcript):
     transcript = clean_up_text(transcript)

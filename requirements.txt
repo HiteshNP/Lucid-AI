@@ -16,3 +16,4 @@ vertexai
 langchain-community
 langchain-google-genai
 frontend
+deep-translator
