@@ -1,7 +1,5 @@
 # Lucid-AI: Revolutionizing Education with AI
 
-![Lucid_logo.png](/static/Lucid_logo.png)
-
 ## Overview
 
 Lucid-AI is a transformative web application that leverages advanced AI technologies to make learning more accessible, engaging, and effective for all students. It integrates tools like Generative AI, Multi-Modal Learning, and Retrieval-Augmented Generation (RAG) to adapt educational resources to diverse learning styles and needs, thereby supporting inclusive and equitable quality education.
