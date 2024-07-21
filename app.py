@@ -40,6 +40,7 @@ def boring_slide_eradicator():
     return redirect(url_for('index'))
 
 @app.route('/success', methods=['POST'])
+@app.route('/success', methods=['POST'])
 def success():
     if 'file' not in request.files:
         return "No file uploaded"
@@ -49,19 +50,23 @@ def success():
     if file.filename == '':
         return "Empty filename"
 
-    global file_path
+    # Ensure upload directory exists
+    if not os.path.exists('uploads'):
+        os.makedirs('uploads')
 
     file_path = os.path.join('uploads', file.filename)
     file.save(file_path)
 
     if file.filename.endswith('.mp3'):
-        transcribe_audio(file_path)
-        file_path = os.path.join('uploads', file.filename + "transcribed")
+        transcribed_text = transcribe_audio(file_path)
+        transcribed_file_path = os.path.join('uploads', file.filename + ".txt")
+        with open(transcribed_file_path, 'w') as f:
+            f.write(transcribed_text)
+        file_path = transcribed_file_path
 
     session['file_path'] = file_path
 
     output = run_python_script(file_path)
-
     return redirect(url_for('show_output', output=output))
 
 def get_session():
@@ -72,16 +77,11 @@ def run_python_script(file_path):
         return f.read()
 
 def transcribe_audio(file_path):
-    FILE_URL = file_path
     config = aai.TranscriptionConfig(auto_highlights=True)
     transcriber = aai.Transcriber()
-    transcript = transcriber.transcribe(FILE_URL, config=config)
-    transcription_text = transcript.text
-    transcribed_file_path = os.path.join(file_path + "transcribed")
-    with open(transcribed_file_path, 'w') as file:
-        file.write(transcription_text)
-
+    transcript = transcriber.transcribe(file_path, config=config)
     return transcript.text
+
 
 @app.route('/show_output')
 def show_output():
@@ -165,8 +165,12 @@ def accent():
 @app.route('/flashcards')
 def flashcards():
     file_path = get_session()
+    if not file_path:
+        return redirect(url_for('index'))
+
     with open(file_path, 'r') as f:
         text = f.read()
+        
     full, keyword, description = find_keywords(text)
     return render_template('/output_pages/flashcards.html', keyword=keyword, description=description, app_data=app_data)
 
