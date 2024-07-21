@@ -24,12 +24,6 @@
             background-color: #EBFDFF;
         }
 
-        .body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
         .navbarr a {
             display: flex;
             align-items: center;
@@ -53,6 +47,7 @@
 
         /* Additional styling for the paragraph to ensure consistency */
         .navbarr p {
+            color: black;
             text-align: center;
             padding: 20px 15px; /* Adjusted padding */
             margin: 0px;
@@ -68,8 +63,13 @@
             margin: 0;
         }
 
-        /* Show the subnav when hovering over the "Accent" link */
-        #accent_wrapper:hover .sub_nav {
+        /* Show the subnav when clicking on the "Translate" link */
+        #translate_wrapper.active .sub_nav {
+            display: block;
+        }
+        
+        /* Show the subnav when clicking on the "Accent" link */
+        #accent_wrapper.active .sub_nav {
             display: block;
         }
     </style>
@@ -79,20 +79,27 @@
     <p>How can I help you study today?</p>
     <li><a id="transcript" href="/transcript">Clean Transcript</a></li>
     <li><a id="summary" href="/summary">Summary</a></li>
-    <li id="accent_wrapper">
-        <a id="translate" href="/translate">Translate to my language</a>
+    <li id="translate_wrapper">
+        <a id="translate" href="#">Translate to my language</a>
         <ul class="sub_nav">
+            <li><a href="/translate?parameter=Kannada">Kannada</a></li>
+            <li><a href="/translate?parameter=Hindi">Hindi</a></li>
+            <li><a href="/translate?parameter=Telugu">Telugu</a></li>
+            <li><a href="/translate?parameter=Tamil">Tamil</a></li>
+            <li><a href="/translate?parameter=Malyalam">Malyalam</a></li>
             <li><a href="/translate?parameter=English">English</a></li>
             <li><a href="/translate?parameter=French">French</a></li>
-            <li><a href="/translate?parameter=Hindi">Hindi</a></li>
             <li><a href="/translate?parameter=Spanish">Spanish</a></li>
             <li><a href="/translate?parameter=Korean">Korean</a></li>
             <li><a href="/translate?parameter=Arabic">Arabic</a></li>
         </ul>
     </li>
     <li id="accent_wrapper">
-        <a id="accent" href="/accent">Translate to my Accent</a>
+        <a id="accent" href="#">Translate to my Accent</a>
         <ul class="sub_nav">
+            <li><a href="/accent?parameter=male-australian">Male Australian</a></li>
+            <li><a href="/accent?parameter=female-swedish">Female Swedish</a></li>
+            <li><a href="/accent?parameter=male-italian">Male Italian</a></li>
             <li><a href="/accent?parameter=female-american">Female American</a></li>
             <li><a href="/accent?parameter=male-american">Male American</a></li>
             <li><a href="/accent?parameter=female-british">Female British</a></li>
@@ -106,5 +113,19 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // JavaScript to toggle visibility of sub_nav on click
+    document.getElementById('translate').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector('#translate_wrapper').classList.toggle('active');
+    });
+
+    document.getElementById('accent').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector('#accent_wrapper').classList.toggle('active');
+    });
+</script>
+
 </body>
 </html>

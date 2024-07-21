@@ -4,6 +4,7 @@ import assemblyai as aai
 from gemini import *
 import requests
 from dotenv import load_dotenv
+import subprocess
 
 load_dotenv('.env.local')
 
@@ -27,6 +28,18 @@ def index():
 def about():
     return render_template('vision.html', app_data=app_data)
 
+@app.route('/chat_with_pdf')
+def chat_with_pdf():
+    subprocess.Popen(["streamlit", "run", "chat_pdf.py"])
+    return redirect(url_for('index'))
+
+@app.route('/boring_slide_eradicator')
+def boring_slide_eradicator():
+    import subprocess
+    subprocess.Popen(["streamlit", "run", "slide.py"])
+    return redirect(url_for('index'))
+
+@app.route('/success', methods=['POST'])
 @app.route('/success', methods=['POST'])
 def success():
     if 'file' not in request.files:
@@ -37,19 +50,23 @@ def success():
     if file.filename == '':
         return "Empty filename"
 
-    global file_path
+    # Ensure upload directory exists
+    if not os.path.exists('uploads'):
+        os.makedirs('uploads')
 
     file_path = os.path.join('uploads', file.filename)
     file.save(file_path)
 
     if file.filename.endswith('.mp3'):
-        transcribe_audio(file_path)
-        file_path = os.path.join('uploads', file.filename + "transcribed")
+        transcribed_text = transcribe_audio(file_path)
+        transcribed_file_path = os.path.join('uploads', file.filename + ".txt")
+        with open(transcribed_file_path, 'w') as f:
+            f.write(transcribed_text)
+        file_path = transcribed_file_path
 
     session['file_path'] = file_path
 
     output = run_python_script(file_path)
-
     return redirect(url_for('show_output', output=output))
 
 def get_session():
@@ -60,16 +77,11 @@ def run_python_script(file_path):
         return f.read()
 
 def transcribe_audio(file_path):
-    FILE_URL = file_path
     config = aai.TranscriptionConfig(auto_highlights=True)
     transcriber = aai.Transcriber()
-    transcript = transcriber.transcribe(FILE_URL, config=config)
-    transcription_text = transcript.text
-    transcribed_file_path = os.path.join(file_path + "transcribed")
-    with open(transcribed_file_path, 'w') as file:
-        file.write(transcription_text)
-
+    transcript = transcriber.transcribe(file_path, config=config)
     return transcript.text
+
 
 @app.route('/show_output')
 def show_output():
@@ -103,7 +115,7 @@ def translate2():
         text = f.read()
     translated_transcript = translate(text, preferred_language)
 
-    return render_template('/output_pages/translate.html', output=translated_transcript, app_data=app_data)
+    return render_template('/output_pages/translate.html', output=translated_transcript, preferred_language=preferred_language, app_data=app_data)
 
 @app.route('/accent')
 def accent():
@@ -119,13 +131,22 @@ def accent():
     if preferred_accent == "female-american":
         url = "https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM"
     elif preferred_accent == "male-american":
-        url = "https://api.elevenlabs.io/v1/text-to-speech/29vD33N1CtxCmqQRPOHJ"
+        url = "https://api.elevenlabs.io/v1/text-to-speech/pqHfZKP75CvOlQylNhV4"
     elif preferred_accent == "female-british":
         url = "https://api.elevenlabs.io/v1/text-to-speech/ThT5KcBeYPX3keUQqHPh"
     elif preferred_accent == "male-british":
         url = "https://api.elevenlabs.io/v1/text-to-speech/Yko7PKHZNXotIFUBG7I9"
+    elif preferred_accent == "male-australian":
+        url = "https://api.elevenlabs.io/v1/text-to-speech/zcAOhNBS3c14rBihAFp1"
+    elif preferred_accent == "female-swedish":
+        url = "https://api.elevenlabs.io/v1/text-to-speech/XB0fDUnXU5powFXDhCwa"
+    elif preferred_accent == "male-italian":
+        url = "https://api.elevenlabs.io/v1/text-to-speech/zcAOhNBS3c14rBihAFp1"
 
     file_path = get_session()
+    if not file_path:
+        return redirect(url_for('index'))
+
     with open(file_path, 'r') as f:
         text_to_read = f.read()
 
@@ -145,13 +166,17 @@ def accent():
             if chunk:
                 f.write(chunk)
 
-    return render_template('/output_pages/accent.html', mp3_file_path="output.mp3", app_data=app_data)
+    return render_template('/output_pages/accent.html', mp3_file_path="output.mp3", transcript=text_to_read, app_data=app_data)
 
 @app.route('/flashcards')
 def flashcards():
     file_path = get_session()
+    if not file_path:
+        return redirect(url_for('index'))
+
     with open(file_path, 'r') as f:
         text = f.read()
+        
     full, keyword, description = find_keywords(text)
     return render_template('/output_pages/flashcards.html', keyword=keyword, description=description, app_data=app_data)
 

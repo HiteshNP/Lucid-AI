@@ -1,60 +1,283 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-
 <style>
-    @keyframes typewriter {
-        from { width: 0; }
-        to { width: 100%; }
+   @keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f9fa;
+        color: #212529;
+        margin: 0; /* Reset default margin */
+        padding: 0; /* Reset default padding */
     }
 
     .typewriter {
-        font-family: monospace;
+        font-family: 'Courier New', monospace;
         overflow: hidden;
-        border-right: 3px solid black; /* Visible cursor */
+        border-right: 3px solid black;
         white-space: nowrap;
         letter-spacing: .15em;
         animation: typewriter 4s steps(30) forwards;
     }
 
     input[type="file"] {
-    display: none;
+        display: none;
     }
 
     .custom-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
+        border: 1px solid #87CEEB; /* Sky Blue */
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+        color: #87CEEB; /* Sky Blue */
+        font-weight: bold;
+        background-color: #ffffff;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .custom-file-upload:hover {
+        background-color: #87CEEB; /* Sky Blue */
+        color: #ffffff;
+    }
+
+    #background-video {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 120%;
+        width: auto;
+        height: auto;
+        z-index: -1000;
+        opacity: 1;
+        max-height: 200vh;
+    }
+
+    .full-width-section {
+        background-color: #f0f0f0;
+        padding: 50px 0; /* Adjust padding as needed */
+        text-align: center;
+        width: 99.4vw; /* Ensure it spans full viewport width */
+        overflow-x: hidden; /* Prevent horizontal scroll */
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }
+
+    .full-width-section .content {
+        max-width: 100%; /* Adjust max-width to limit content width */
+        margin: 0 auto; /* Center content within the full-width section */
+        display: flex;
+        justify-content: space-between; /* Spread content to edges */
+        align-items: center;
+        padding: 0 20px; /* Horizontal padding */
+    }
+
+    .full-width-section .text-side {
+        flex: 1;
+        text-align: left;
+        padding-right: 20px;
+    }
+
+    .full-width-section .image-side {
+        flex: 1;
+        text-align: right;
+    }
+
+    .full-width-section img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .about-section {
+        padding: 50px 20px;
+        background-color: rgba(216, 212, 212, 0);
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 50px; /* Adjust margin as needed */
+    }
+
+    .about-section h2 {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #4CAF50;
+    }
+
+    .about-section ul {
+        list-style-type: disc;
+        padding-left: 40px;
+    }
+
+    .about-section ul li {
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #388E3C;
+    }
+
+    .display-4 {
+        background: linear-gradient(to right, #66BB6A, #1B5E20);
+        font-size: 80px;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        background-color: #87CEEB; /* Sky Blue */
+        border-color: #87CEEB; /* Sky Blue */
+    }
+
+    .btn-primary:hover {
+        background-color: #00BFFF; /* Deep Sky Blue */
+        border-color: #00BFFF; /* Deep Sky Blue */
+    }
+
+    .nav-link {
+        color: #87CEEB !important; /* Sky Blue */
+        font-weight: bold;
+    }
+
+    .nav-link:hover {
+        color: #00BFFF !important; /* Deep Sky Blue */
+    }
+
+    .navbar-brand {
+        color: #87CEEB !important; /* Sky Blue */
+        font-weight: bold;
+    }
+
+    .navbar-brand:hover {
+        color: #00BFFF !important; /* Deep Sky Blue */
+    }
+
+    .toggle-switch .slider {
+        background-color: #87CEEB; /* Sky Blue */
+    }
+
+    .toggle-switch .slider:before {
+        background-color: #ffffff;
+    }
+
+    .dark-mode {
+        background-color: #212529;
+        color: #f8f9fa;
+    }
+
+    .dark-mode .navbar {
+        background-color: transparent !important; /* Ensure the navbar stays transparent */
+    }
+
+    .dark-mode .nav-link {
+        color: #87CEEB !important; /* Sky Blue */
+    }
+
+    .dark-mode .navbar-brand {
+        color: #87CEEB !important; /* Sky Blue */
+    }
+
+    .dark-mode .full-width-section {
+        background-color: #343a40; /* Dark background for the services sections */
+    }
+
+    .dark-mode .services-section h3,
+    .dark-mode .services-section p {
+        color: #cfd9e4; /* Light text color for services section */
+    }
+
+    /* New styles for the first div box */
+    .boxed-container {   
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(100px);
+    color: #fff;
+    padding: 30px 20px;
+    margin: 0px;
+    border: 0px solid rgba(255, 255, 255, 0.5); /* Green border with transparency */
+    border-radius : 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    max-width: 460px; /* Set a maximum width */
+    width: 90%; /* Ensure it takes up a significant portion of the viewport */
+    }
+
+    /* Additional styles to push the about section down */
+    .push-down {
+        margin-top: 100px; /* Adjust as needed to push the section down */
+    }
+
+    /* Adjustments for services section */
+    .services-section {
+        padding-top: 40px; /* Ensure space above the first service */
+        background-color: transparent; /* Light gray background */
+    }
+
+    .services-section h3 {
+        margin-bottom: 20px; /* Space below headings */
+    }
+
+    .services-section p {
+        line-height: 1.6; /* Improved readability */
+    }
+
+    .services-section .full-width-section {
+        padding: 40px 20px; /* Padding around each service section */
+    }
+
+    .services-section .text-side {
+        padding-right: 20px; /* Space between text and image */
+    }
+
+    .services-section .image-side {
+        text-align: center; /* Center align images */
+    }
+
+    .services-section img {
+        max-width: 100%; /* Reduce image size */
+        height: 350px;
+        border-radius: 8px;
+    }
+
+    .dark-mode .services-section h3,
+    .dark-mode .services-section p,
+    .dark-mode .services-section ul,
+    .dark-mode .services-section li {
+        color: #212529; /* Keep text black */
     }
 
 </style>
 
+<video autoplay loop muted id="background-video">
+    <source src="/static/background.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
 
 <div style="margin-top: -180px;">
     <center>
-        <img src="/static/Lucid_logo.png" class="card-img-top" alt="Image" style="object-fit: cover; height: 150px; width:150px; border-radius: 50%;">
-        <h1 class="display-4" style="background: linear-gradient(to right, rgb(159, 228, 243), rgb(19, 95, 126)); font-size: 80px; -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: bold;">Lucid AI</h1>
-        <div class="typewriter-container" style="height: 50px; padding: 0px; border-collapse: collapse; margin: 0px;"> 
-            <p id="typewriter-text" style="font-size: 28px; padding: 0px; border-collapse: collapse; margin: 0px; font-weight: 500;"></p>
-        </div>
-
+        <div class="boxed-container">
+            <img src="/static/Lucid_logo.png" class="card-img-top" alt="Image" style="object-fit: cover; height: 150px; width:150px; border-radius: 50%;">
+            <h1 class="display-4" style="background: #87CEEB; font-size: 80px; -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: bold;">Lucid AI</h1>
+            <div class="typewriter-container" style="height: 50px; padding: 0px; border-collapse: collapse; margin: 0px;"> 
+                <p id="typewriter-text" style="font-size: 25px; padding: 0px; border-collapse: collapse; margin: 0px; font-weight: 500;"></p>
+            </div>
         
-        <div style="height: 40px"></div>
-        <div style="display: flex; justify-content: center">
-            <form style="display: flex; flex-direction: column; align-items: center; width: 100%;"  action="/success" method="post" enctype="multipart/form-data">
-
-
-                    <label class="custom-file-upload" >
+            <div style="height: 15px"></div>
+            <div style="display: flex; justify-content: center">
+                <form style="display: flex; flex-direction: column; align-items: center; width: 100%;"  action="/success" method="post" enctype="multipart/form-data">
+                    <label class="custom-file-upload">
                         <input type="file" name="file" id="file-input" />
                         <span id="file-label">
                             Upload a file to get started
                         </span>
                     </label>
 
-
                     <script>
-                        
                         // Get the file input and label
                         const fileInput = document.getElementById('file-input');
                         const fileLabel = document.getElementById('file-label');
@@ -66,25 +289,198 @@
                                 fileLabel.textContent = this.files[0].name;
                             }
                         });
-
-                       
                     </script>
-                </label>
 
-                <div style="height:20px"></div>
-                <input type="submit" value="Upload" 
-                class="btn btn-primary btn-lg transition-link"
-                style="background:#94D6E6; padding: 10px; width: 150px; color:black; border: none; font-weight: 600;"
-                >
-            </form>
+                    <div style="height:20px"></div>
+                    <input type="submit" value="Upload" 
+                    class="btn btn-primary btn-lg transition-link"
+                    style="background:#94D6E6; padding: 10px; width: 150px; color:black; border: none; font-weight: 600;"
+                    >
+                </form>
+            </div>
         </div>
     </center>
 </div>
 
+<!-- Services sections -->
+<div id="services" class="services-section">
+    <!-- Chat with PDF Section -->
+    <div class="full-width-section" style="background-color: #e0f7fa; padding: 40px 20px;">
+        <div class="container" style="max-width: 1500px; margin: 0 auto;">
+            <div class="content" style="display: flex; justify-content: space-between; align-items: center;">
+                <div class="text-side" style="flex: 1; padding-right: 20px;">
+                    <h3 style="color: #00838f; font-size: 2.5rem; margin-bottom: 20px; text-align: center;">Chat with PDF: Your Interactive Document Assistant</h3>
+                    <p style="font-size: 1.2rem; text-align: center;">📄 Imagine having a conversation with your PDF documents! 🗣️</p>
+                    <p style="font-size: 1.2rem; text-align: center;">Our Chat with PDF feature allows you to:</p>
+                    <ul style="font-size: 1.2rem; list-style-type: none; padding-left: 0; text-align: center;">
+                        <li style="margin-bottom: 15px;">🔍 Search for specific information within your PDF</li>
+                        <li style="margin-bottom: 15px;">💬 Ask questions and get instant answers from the document</li>
+                        <li style="margin-bottom: 15px;">📚 Extract key points and summaries on demand</li>
+                    </ul>
+                    <p style="font-size: 1.5rem; text-align: center; margin-top: 30px;">Transform the way you interact with your documents! 🌟</p>
+                    <div style="display: flex; justify-content: center; margin-top: 30px;">
+                        <button class="btn btn-primary btn-lg transition-link" style="background:#00acc1; padding: 15px 30px; color:white; border: none; font-weight: 600; font-size: 1.5rem; cursor: pointer;" onclick="location.href='/chat_with_pdf';">Try Now</button>
+                    </div>
+                </div>
+                <div class="image-side" style="flex: 1; text-align: center;">
+                    <img src="/static/chat_pdf.png" alt="Chat with PDF" style="max-width: 100%; height: auto; margin-top: 20px; border-radius: 8px; box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);">
+                </div>
+            </div>
+        </div>
+    </div>
 
+
+    <div class="full-width-section" style="background-color: #f1f8e9; padding: 40px;">
+        <div class="content" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="image-side" style="flex: 1; text-align: center;">
+                <img src="/static/beforeafter.gif" alt="Boring Slide Eradicator" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);">
+            </div>
+            <div class="text-side" style="flex: 1; padding-left: 20px;">
+                <h3 style="color: #689f38; font-size: 2.5rem; margin-bottom: 20px; text-align: center;">Boring Slide Eradicator: Transform Your Presentations</h3>
+                <p style="font-size: 1.5rem; text-align: center;">🚀 Say goodbye to dull slides! 🎉</p>
+                <p style="font-size: 1.5rem; text-align: center;">With our Boring Slide Eradicator, you can:</p>
+                <ul style="font-size: 1.2rem; list-style-type: none; padding-left: 0; text-align: center; margin-bottom: 20px;">
+                    <li style="margin-bottom: 15px;">✨ Instantly enhance the visual appeal of your slides</li>
+                    <li style="margin-bottom: 15px;">🎨 Add engaging elements and interactivity</li>
+                    <li style="margin-bottom: 15px;">📈 Make your presentations more impactful and memorable</li>
+                </ul>
+                <p style="font-size: 1.5rem; text-align: center;">Revamp your slides and captivate your audience! 🌟</p>
+                <div style="display: flex; justify-content: center; margin-top: 30px;">
+                    <button class="btn btn-primary btn-lg transition-link" style="background:#8bc34a; padding: 15px 30px; color:white; border: none; font-weight: 600; font-size: 1.5rem; cursor: pointer;" onclick="location.href='/boring_slide_eradicator';">Try Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <!-- Listen, Read, Learn: Audio Decoder -->
+    <div class="full-width-section" style="background-color: #fff6dd; padding: 40px;">
+        <div class="content" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="text-side" style="flex: 1; padding-right: 40px;">
+                <h3 style="color: #004d40; font-size: 2em; margin-bottom: 20px;">Listen, Read, Learn: Audio Decoder</h3>
+                <p style="font-size: 1.2em;">🎉 Unlock the full potential of audio learning! 📚 Our LucidAI Audio Decoder is a game-changer! 🚀</p>
+                <ul style="font-size: 1.1em; margin-top: 20px;">
+                    <li>Instantly transcribe MP3 files into readable text 📄</li>
+                    <li>Boost your comprehension and retention 🤩</li>
+                    <li>Discover new insights and learning opportunities 💡</li>
+                    <li>Save time and learn more efficiently ⏱</li>
+                </ul>
+                <p style="font-size: 1.2em; margin-top: 20px;">Try our web app now and experience the future of learning! 🚀</p>
+                <p style="font-size: 1.2em;">👉 Explore our features and uncover a smarter way to learn! 🤓</p>
+                <ul style="font-size: 1.1em; margin-top: 20px;">
+                    <li>🔍 Search and find specific moments in audio files</li>
+                    <li>📝 Take notes and organize your thoughts</li>
+                    <li>📊 Review and track your progress</li>
+                </ul>
+                <p style="font-size: 1.2em; margin-top: 20px;">Join the learning revolution! 🌟 Check it out now and start transcribing your way to success! 🎉</p>
+            </div>
+            <div class="image-side" style="flex: 1;">
+                <img src="/static/mp3-text.gif" alt="Boring Slide Eradicator" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);">
+            </div>
+        </div>
+    </div>
+
+    <!-- Clear Understanding: Multilingual Translation -->
+    <div class="full-width-section" style="background-color: hsl(27, 100%, 91%); padding: 40px;">
+        <div class="content" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="image-side" style="flex: 1;">
+                <img src="/static/service2.jpg" alt="Service 2" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
+            <div class="text-side" style="flex: 1; padding-left: 40px;">
+                <h3 style="color: #212121; font-size: 2em; margin-bottom: 20px;">Clear Understanding: Multilingual Translation</h3>
+                <p style="font-size: 1.2em;">🌎 Understand with ease, in your native language! 🌍</p>
+                <p style="font-size: 1.2em;">We've got you covered with our multilingual translation feature! 🌈</p>
+                <p style="font-size: 1.2em;">Get transcribed text from audio translated into your native language, including:</p>
+                <ul style="font-size: 1.1em; margin-top: 20px;">
+                    <li>🇬🇧 English</li>
+                    <li>🇮🇳 Kannada</li>
+                    <li>🇮🇳 Hindi</li>
+                    <li>🇮🇳 Tamil</li>
+                    <li>🇮🇳 Telugu</li>
+                    <li>🇮🇳 Malayalam</li>
+                </ul>
+                <p style="font-size: 1.2em; margin-top: 20px;">and many more! 🌏</p>
+                <p style="font-size: 1.2em;">Read and understand audio content in the language that's most comfortable for you. 📖</p>
+                <p style="font-size: 1.2em;">No more language barriers, just clear understanding! 🌟</p>
+                <p style="font-size: 1.2em; margin-top: 20px;">Try our translation feature now and connect with audio content like never before! 🚀</p>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Hear It Your Way: Effortless Understanding -->
+    <div class="full-width-section" style="background-color: hsl(321, 100%, 96%); padding: 40px;">
+        <div class="content" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="text-side" style="flex: 1; padding-right: 40px;">
+                <h3 style="color: #004d40; font-size: 2em; margin-bottom: 20px;">Hear It Your Way: Effortless Understanding</h3>
+                <p style="font-size: 1.2em;">🌎 Break down accent barriers with our Accented Speech Translation feature! 🗣</p>
+                <p style="font-size: 1.2em;">Struggling to understand audio files due to unfamiliar accents? 🤔</p>
+                <p style="font-size: 1.2em;">Our innovative feature automatically adjusts the accent to one you're most comfortable with, making it easier to comprehend and learn from audio content! 📚</p>
+                <p style="font-size: 1.2em;">Select your preferred accent and:</p>
+                <ul style="font-size: 1.1em; margin-top: 20px;">
+                    <li>🔊 Enhance audio clarity and understanding</li>
+                    <li>📝 Take notes and focus on the content, not the accent</li>
+                    <li>🎯 Boost your learning and productivity</li>
+                </ul>
+                <p style="font-size: 1.2em; margin-top: 20px;">Experience the power of accent adaptation! 🌟 Check it out now and tune in to crystal-clear audio, tailored to your ears! 🎧</p>
+            </div>
+            <div class="image-side" style="flex: 1;">
+                <img src="/static/service3.jpg" alt="Service 3" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </div>
+
+    <!-- Flash Your Way to the Top: Interactive Learning Made Fun -->
+    <div class="full-width-section" style="background-color: #f0f0f0; padding: 40px;">
+        <div class="content" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="image-side" style="flex: 1;">
+                <img src="/static/-flash-.gif" alt="Boring Slide Eradicator" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);">
+            </div>
+            <div class="text-side" style="flex: 1; padding-left: 40px;">
+                <h3 style="color: #212121; font-size: 2em; margin-bottom: 20px;">Flash Your Way to the Top: Interactive Learning Made Fun</h3>
+                <p style="font-size: 1.2em;">🎓 Flashcards, reinvented! 💥</p>
+                <p style="font-size: 1.2em;">Introducing interactive flashcards that make learning stick like glue!</p>
+                <p style="font-size: 1.2em;">Learn anything faster, from vocabulary to history, and ace your exams! 📚</p>
+                <p style="font-size: 1.2em;">Our flashcards are your secret weapon to:</p>
+                        <ul style="list-style-type: disc; margin-left: 20px;">
+                            <li>💡 Boost retention from goldfish memory to Einstein-level brilliance</li>
+                            <li>🔥 Supercharge your learning speed and efficiency</li>
+                            <li>📈 Track progress and stay motivated</li>
+                        </ul>
+                    </li>
+                <p style="font-size: 1.2em;">Experience the ultimate learning upgrade! 🚀</p>
+                <p style="font-size: 1.2em; margin-top: 20px;">👉 Create digital flashcards with a click</p>
+                <p style="font-size: 1.2em;">👉 Study modes for every learning style</p>
+                <p style="font-size: 1.2em;">👉 Gamify your progress and make learning fun!</p>
+                <p style="font-size: 1.2em; margin-top: 20px;">Unlock your full potential! 💪 Check it out now and start flashing your way to academic success! 🎉</p>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- From Confusion to Clarity: The LucidAI-Summary-Sorcerer -->
+    <div class="full-width-section" style="background-color: #f3f3f3; padding: 40px;">
+        <div class="content" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="text-side" style="flex: 1; padding-right: 40px;">
+                <h3 style="color: #004d40; font-size: 2em; margin-bottom: 20px;">From Confusion to Clarity: The LucidAI-Summary-Sorcerer</h3>
+                <p style="font-size: 1.2em;">Lost in a sea of study materials? Overwhelmed by lengthy lectures and complex texts? 🌊 Fear not, dear scholar!</p>
+                <p style="font-size: 1.2em;">Introducing the LucidAI-Summary-Sorcerer! 🔮 This powerful tool is designed to help you grasp complex concepts and retain knowledge more effectively. With a wave of its digital wand, the Sorcerer:</p>
+                <ul style="font-size: 1.1em; margin-top: 20px;">
+                    <li>📚 Condenses lengthy texts into concise, easy-to-understand summaries</li>
+                    <li>⚡ Extracts key points and main ideas with remarkable speed and accuracy</li>
+                    <li>💡 Illuminates the core concepts, making it easier to understand and retain information</li>
+                </ul>
+                <p style="font-size: 1.2em; margin-top: 20px;">Unlock the secrets of your study materials and discover the magic of learning! 💫 The LucidAI-Summary-Sorcerer is your trusted guide, helping you navigate the vast ocean of knowledge and achieve academic success!</p>
+            </div>
+            <div class="image-side" style="flex: 1;">
+                <img src="/static/service5.jpg" alt="Service 5" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </div>
+
+</div>
 
 <script>
-    const sentences = ["Empower learning.", "Learn, Leap, Lead","Illuminate Learning, Illuminate Minds."];
+    const sentences = ["Empower learning.", "Learn, Leap, Lead", "Illuminate Learning, Illuminate Minds."];
     const typewriterText = document.getElementById("typewriter-text");
 
     let sentenceIndex = 0;
@@ -116,10 +512,28 @@
             setTimeout(type, 500);
         }
     }
-      
+    
     // Start the typewriter effect
     type();
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 </script>
 
+{% endblock %}
 
+{% block footer %}
+    {% include 'footer.html' %}
 {% endblock %}
