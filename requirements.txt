@@ -17,3 +17,5 @@ langchain-community
 langchain-google-genai
 frontend
 deep-translator
+tools
+PyMuPDF
