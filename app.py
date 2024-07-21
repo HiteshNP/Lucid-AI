@@ -115,7 +115,7 @@ def translate2():
         text = f.read()
     translated_transcript = translate(text, preferred_language)
 
-    return render_template('/output_pages/translate.html', output=translated_transcript, app_data=app_data)
+    return render_template('/output_pages/translate.html', output=translated_transcript, preferred_language=preferred_language, app_data=app_data)
 
 @app.route('/accent')
 def accent():
@@ -138,6 +138,9 @@ def accent():
         url = "https://api.elevenlabs.io/v1/text-to-speech/Yko7PKHZNXotIFUBG7I9"
 
     file_path = get_session()
+    if not file_path:
+        return redirect(url_for('index'))
+
     with open(file_path, 'r') as f:
         text_to_read = f.read()
 
@@ -157,7 +160,7 @@ def accent():
             if chunk:
                 f.write(chunk)
 
-    return render_template('/output_pages/accent.html', mp3_file_path="output.mp3", app_data=app_data)
+    return render_template('/output_pages/accent.html', mp3_file_path="output.mp3", transcript=text_to_read, app_data=app_data)
 
 @app.route('/flashcards')
 def flashcards():

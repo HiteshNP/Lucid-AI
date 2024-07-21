@@ -7,20 +7,19 @@
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        /* Default light mode styles */
+
         body {
             background-color: white;
             color: black;
         }
 
-        /* Dark mode styles */
         body.dark-mode {
             background-color: #121212;
             color: white;
         }
 
         .dark-mode .navbar {
-            background-color: transparent !important; /* Remove background color */
+             /* Remove background color */
             box-shadow: none !important; /* Remove shadow if needed */
         }
 
@@ -43,7 +42,8 @@
         }
 
         .dark-mode .nav-link {
-            color: white !important;
+
+            color: #87CEEB;
             position: relative; /* Ensure z-index works */
         }
 
@@ -58,7 +58,7 @@
         }
 
         .navbar-brand span {
-            background: linear-gradient(to right, rgb(159, 228, 243), rgb(19, 95, 126));
+            background: #87CEEB;
             font-size: 25px;
             -webkit-background-clip: text;
             background-clip: text;
@@ -67,7 +67,6 @@
             margin-left: 10px;
         }
 
-        /* Toggle switch styles */
         .toggle-switch {
             position: relative;
             display: inline-block;
@@ -97,7 +96,6 @@
              /* Rounded corners for dark mode */
         }
 
-        /* Sun and moon icons */
         .slider:before {
             position: absolute;
             content: "";
@@ -122,7 +120,7 @@
 
         /* Navigation links */
         .nav-link {
-            color: #333; /* Default link color */
+            color: #87CEEB; /* Default link color */
             text-decoration: none;
             margin-left: 10px; /* Adjust spacing between links */
             font-weight: bold;
@@ -130,77 +128,117 @@
         }
 
         .nav-link:hover {
-            color: #00BFFF; /* Hover link color */
+            color: #1c7cea; /* Hover link color */
         }
-
 
         input:checked + .slider:before {
             transform: translateX(20px);  /* Adjusted for new size */
         }
 
         .navbar {
-        background: rgba(0, 0, 0, 0.6); /* Darker grey with 60% opacity */
+        background: transparent; /* Darker grey with 60% opacity */
         backdrop-filter: blur(10px); /* Apply a blur effect to the background */
         color: #fff; /* Text color */
-        /*border: 1px solid rgba(255, 255, 255, 0.5); /* Border with transparency */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
         }
 
         .navbar-toggler {
         color: rgba(0, 0, 0, 0.5); /* Adjust color as needed */
         border-color: rgba(0, 0, 0, 0.1); /* Adjust border color if necessary */
-        z-index: 1100; /* Ensure toggler icon is above other elements */
-    }
+        z-index: 2000; /* Ensure toggler icon is above other elements */
+        }
 
-    .navbar-toggler-icon {
-        background-image: none; /* Remove any default background image */
-        color: rgba(0, 0, 0, 0.5); /* Adjust icon color */
-        font-size: 24px; /* Adjust icon size if necessary */
-    }
+        .navbar-toggler-icon {
+            color: rgba(0, 0, 0, 0.5); /* Adjust icon color */
+            font-size: 24px; /* Adjust icon size if necessary */
+        }
 
-    /* Optional: Adjust icon color on hover */
-    .navbar-toggler:hover .navbar-toggler-icon {
-        color: rgba(0, 0, 0, 0.7); /* Hover color */
-    }
+        /* Optional: Adjust icon color on hover */
+        .navbar-toggler:hover .navbar-toggler-icon {
+            color: rgba(0, 0, 0, 0.7); /* Hover color */
+        }
+
+            /* Ensure the navbar uses flexbox to align items */
+        .navbar-collapse {
+            margin-left: 30px;
+            display: flex;
+            justify-content: space-between; /* Distribute space between left, center, and right items */
+            align-items: center; /* Vertically align items */
+        }
+
+        /* Center the links between the logo/title and the toggle button */
+        .navbar-nav.mx-auto {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1; /* Ensure this section grows to take up available space */
+        }
+
+        /* Adjust spacing and alignment as needed */
+        .navbar-nav li.nav-item {
+            margin: 0 10px; /* Adjust spacing between centered links */
+        }
+
+        /* Ensure toggle switch is properly aligned */
+        .toggle-switch {
+            display: flex;
+            align-items: center;
+        }
+
 
     </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+        <div class="container">
+            <!-- Logo and Title -->
+            <a href="/" class="navbar-brand d-flex align-items-center">
+                <img src="/static/Lucid_logo.png" alt="Logo">
+                <span>Lucid AI</span>
+            </a>
+    
+            <!-- Toggler Button for Mobile View -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span>
+                    <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/00bfff/menu--v6.png" alt="menu--v6"/>
+                </span>
+            </button>
+    
+            <!-- Navbar Links and Toggle Button Container -->
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <div class="d-flex w-100 align-items-center">
 
-<nav class="navbar navbar-expand-lg fixed-top" id="navbar">
-    <div class="container">
-        <a href="/" class="navbar-brand d-flex align-items-center">
-            <img src="/static/Lucid_logo.png" alt="Logo">
-            <span>Lucid AI</span>
-        </a>        
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto align-items-center">
-                <li class="nav-item">
-                    <div class="nav-link-container">
-                        <a class="nav-link" href="/">Home</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div class="nav-link-container">
-                        <a class="nav-link" href="#services">About</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div class="nav-link-container">
-                        <label class="toggle-switch mb-0">
-                            <input type="checkbox" id="theme-toggle">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                </li>
-            </ul>
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="location.href='/chat_with_pdf';">Chat with PDF</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="location.href='/boring_slide_eradicator';">Slide Eradicator</a>
+                        </li>
+                    </ul>
+                    <!-- Links on the Left -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">About</a>
+                        </li>
+                    </ul>
+    
+                    <!-- Toggle Button on the Right -->
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <label class="toggle-switch mb-0">
+                                <input type="checkbox" id="theme-toggle">
+                                <span class="slider"></span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
-</nav>
-
+    </nav>
+    
 <!-- Page Content -->
 <div class="container mt-5 pt-5"> <!-- Adjusted margin and padding to account for fixed navbar -->
     {% block content %}
@@ -215,9 +253,11 @@
     document.addEventListener('DOMContentLoaded', (event) => {
         const toggleButton = document.getElementById('theme-toggle');
         const body = document.body;
+        const footer = document.querySelector("footer");
 
         toggleButton.addEventListener('change', () => {
             body.classList.toggle('dark-mode');
+            footer.classList.toggle("dark-mode");
         });
     });
 </script>
