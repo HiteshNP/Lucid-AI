@@ -9,7 +9,7 @@ from pptx.util import Pt, Inches
 import io
 import re
 from streamlit_image_select import image_select
-
+import tools
 
 def convert_slides_data_to_text(slides_data):
     # Create a plain text representation of slides_data
