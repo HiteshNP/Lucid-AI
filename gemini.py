@@ -38,6 +38,18 @@ def translate(transcript, language):
     if language.lower() == "kannada":
         return translate_to_kannada(transcript)
     
+    if language.lower() == "hindi":
+        return translate_to_hindi(transcript)
+    
+    if language.lower() == "telugu":
+        return translate_to_telugu(transcript)
+    
+    if language.lower() == "tamil":
+        return translate_to_tamil(transcript)
+    
+    if language.lower() == "malyalam":
+        return translate_to_malyalam(transcript)
+    
     multimodal_model = genai.GenerativeModel("gemini-1.0-pro")
     transcript = clean_up_text(transcript)
     prompt = f"Translate this passage to {language}"
@@ -48,6 +60,26 @@ def translate(transcript, language):
 def translate_to_kannada(transcript):
     cleaned_text = clean_up_text(transcript)
     translated_text = GoogleTranslator(source='auto', target='kn').translate(cleaned_text)
+    return translated_text
+
+def translate_to_hindi(transcript):
+    cleaned_text = clean_up_text(transcript)
+    translated_text = GoogleTranslator(source='auto', target='hi').translate(cleaned_text)
+    return translated_text
+
+def translate_to_telugu(transcript):
+    cleaned_text = clean_up_text(transcript)
+    translated_text = GoogleTranslator(source='auto', target='te').translate(cleaned_text)
+    return translated_text
+
+def translate_to_tamil(transcript):
+    cleaned_text = clean_up_text(transcript)
+    translated_text = GoogleTranslator(source='auto', target='ta').translate(cleaned_text)
+    return translated_text
+
+def translate_to_malyalam(transcript):
+    cleaned_text = clean_up_text(transcript)
+    translated_text = GoogleTranslator(source='auto', target='ml').translate(cleaned_text)
     return translated_text
 
 def find_keywords(transcript):
