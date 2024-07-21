@@ -131,11 +131,17 @@ def accent():
     if preferred_accent == "female-american":
         url = "https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM"
     elif preferred_accent == "male-american":
-        url = "https://api.elevenlabs.io/v1/text-to-speech/29vD33N1CtxCmqQRPOHJ"
+        url = "https://api.elevenlabs.io/v1/text-to-speech/pqHfZKP75CvOlQylNhV4"
     elif preferred_accent == "female-british":
         url = "https://api.elevenlabs.io/v1/text-to-speech/ThT5KcBeYPX3keUQqHPh"
     elif preferred_accent == "male-british":
         url = "https://api.elevenlabs.io/v1/text-to-speech/Yko7PKHZNXotIFUBG7I9"
+    elif preferred_accent == "male-australian":
+        url = "https://api.elevenlabs.io/v1/text-to-speech/zcAOhNBS3c14rBihAFp1"
+    elif preferred_accent == "female-swedish":
+        url = "https://api.elevenlabs.io/v1/text-to-speech/XB0fDUnXU5powFXDhCwa"
+    elif preferred_accent == "male-italian":
+        url = "https://api.elevenlabs.io/v1/text-to-speech/zcAOhNBS3c14rBihAFp1"
 
     file_path = get_session()
     if not file_path:
