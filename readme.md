@@ -121,7 +121,7 @@ The project architecture consists of a front-end built with HTML, CSS, and Boots
     pip install -r requirements.txt
     ```
 
-3. **Set up environment variables:Create a `.env` file in the project root and add your API keys:**
+3. **Set up environment variables: Create a `.env` file in the project root and add your API keys:**
 
     ```bash
     GEMINI_API_KEY=your_gemini_api_key
