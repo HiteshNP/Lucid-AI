@@ -258,7 +258,7 @@ def process_pdf(uploaded_file):
         return None
 
 # Load environment variables
-load_dotenv()
+load_dotenv('.env.local')
 
 # Configure Streamlit page settings
 st.set_page_config(
@@ -267,10 +267,10 @@ st.set_page_config(
     layout="centered",  # Page layout option
 )
 
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+api_key = os.getenv("VERTEX_AI_API_KEY")
 
 # Set up Google Gemini-Pro AI model
-gen_ai.configure(api_key=GOOGLE_API_KEY)
+gen_ai.configure(api_key=api_key)
 
 # Set up the model
 generation_config = {

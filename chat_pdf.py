@@ -10,9 +10,10 @@ from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
 
-load_dotenv()
-os.getenv("GOOGLE_API_KEY")
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+load_dotenv('.env.local')
+
+api_key = os.getenv("VERTEX_AI_API_KEY")
+genai.configure(api_key=api_key)
 
 def get_pdf_text(pdf_docs):
     text = ""

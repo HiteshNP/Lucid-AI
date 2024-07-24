@@ -35,11 +35,9 @@ def chat_with_pdf():
 
 @app.route('/boring_slide_eradicator')
 def boring_slide_eradicator():
-    import subprocess
     subprocess.Popen(["streamlit", "run", "slide.py"])
     return redirect(url_for('index'))
 
-@app.route('/success', methods=['POST'])
 @app.route('/success', methods=['POST'])
 def success():
     if 'file' not in request.files:
@@ -50,7 +48,6 @@ def success():
     if file.filename == '':
         return "Empty filename"
 
-    # Ensure upload directory exists
     if not os.path.exists('uploads'):
         os.makedirs('uploads')
 

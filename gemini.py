@@ -1,13 +1,5 @@
 import vertexai
 import google.generativeai as genai
-from vertexai.generative_models import (
-    GenerationConfig,
-    GenerativeModel,
-    HarmCategory,
-    HarmBlockThreshold,
-    Image,
-    Part,
-)
 import markdown
 import os
 from dotenv import load_dotenv
@@ -35,51 +27,27 @@ def clean_up_text(transcript):
     return response.text
 
 def translate(transcript, language):
-    if language.lower() == "kannada":
-        return translate_to_kannada(transcript)
+    transcript = clean_up_text(transcript)
     
-    if language.lower() == "hindi":
-        return translate_to_hindi(transcript)
-    
-    if language.lower() == "telugu":
-        return translate_to_telugu(transcript)
-    
-    if language.lower() == "tamil":
-        return translate_to_tamil(transcript)
-    
-    if language.lower() == "malyalam":
-        return translate_to_malyalam(transcript)
+    if language.lower() in ["kannada", "hindi", "telugu", "tamil", "malyalam"]:
+        return translate_to_language(transcript, language)
     
     multimodal_model = genai.GenerativeModel("gemini-1.0-pro")
-    transcript = clean_up_text(transcript)
     prompt = f"Translate this passage to {language}"
     response = multimodal_model.generate_content([transcript, prompt])
     
     return response.text
 
-def translate_to_kannada(transcript):
+def translate_to_language(transcript, language):
+    language_codes = {
+        "kannada": 'kn',
+        "hindi": 'hi',
+        "telugu": 'te',
+        "tamil": 'ta',
+        "malyalam": 'ml'
+    }
     cleaned_text = clean_up_text(transcript)
-    translated_text = GoogleTranslator(source='auto', target='kn').translate(cleaned_text)
-    return translated_text
-
-def translate_to_hindi(transcript):
-    cleaned_text = clean_up_text(transcript)
-    translated_text = GoogleTranslator(source='auto', target='hi').translate(cleaned_text)
-    return translated_text
-
-def translate_to_telugu(transcript):
-    cleaned_text = clean_up_text(transcript)
-    translated_text = GoogleTranslator(source='auto', target='te').translate(cleaned_text)
-    return translated_text
-
-def translate_to_tamil(transcript):
-    cleaned_text = clean_up_text(transcript)
-    translated_text = GoogleTranslator(source='auto', target='ta').translate(cleaned_text)
-    return translated_text
-
-def translate_to_malyalam(transcript):
-    cleaned_text = clean_up_text(transcript)
-    translated_text = GoogleTranslator(source='auto', target='ml').translate(cleaned_text)
+    translated_text = GoogleTranslator(source='auto', target=language_codes[language.lower()]).translate(cleaned_text)
     return translated_text
 
 def find_keywords(transcript):
@@ -119,7 +87,6 @@ def find_keywords(transcript):
 if __name__ == "__main__":
     
     project_id = "genaigensis2024"
-    # Initialize Vertex AI
     vertexai.init(project=project_id, location="us-central1")
     transcript = open("transcript.txt", "r")
     file = transcript.read()
