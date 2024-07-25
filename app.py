@@ -177,5 +177,10 @@ def flashcards():
     full, keyword, description = find_keywords(text)
     return render_template('/output_pages/flashcards.html', keyword=keyword, description=description, app_data=app_data)
 
+@app.route('/math_solver')
+def math_solver():
+    subprocess.Popen(["streamlit", "run", "solver.py"])
+    return redirect(url_for('index'))
+    
 if __name__ == "__main__":
     app.run(debug=True)
